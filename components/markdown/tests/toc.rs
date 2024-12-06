@@ -75,3 +75,26 @@ fn can_make_toc_all_levels() {
     assert_eq!(toc[0].children[1].children[0].children.len(), 1);
     assert_eq!(toc[0].children[1].children[0].children[0].children.len(), 1);
 }
+
+#[test]
+fn can_make_toc_classes() {
+    let res = common::render(
+        r#"
+## Heading with no classes
+
+## Heading with one class {.class}
+
+## Heading with two classes {.class1 .class2}
+"#,
+    )
+    .unwrap();
+
+    let toc = res.toc;
+    assert_eq!(toc.len(), 3);
+    assert!(toc[0].classes.is_empty());
+    assert_eq!(toc[1].classes.len(), 1);
+    assert_eq!(toc[1].classes[0], "class");
+    assert_eq!(toc[2].classes.len(), 2);
+    assert_eq!(toc[2].classes[0], "class1");
+    assert_eq!(toc[2].classes[1], "class2");
+}
