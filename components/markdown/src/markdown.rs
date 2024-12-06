@@ -770,6 +770,7 @@ pub fn markdown_to_html(
                 permalink,
                 title,
                 children: Vec::new(),
+                classes: heading_ref.classes.clone(),
             };
             headings.push(h);
         }
