@@ -8,6 +8,7 @@ pub struct Heading {
     pub permalink: String,
     pub title: String,
     pub children: Vec<Heading>,
+    pub classes: Vec<Heading>
 }
 
 impl Heading {
