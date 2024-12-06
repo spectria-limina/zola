@@ -130,6 +130,8 @@ title: String;
 permalink: String;
 // All lower level headers below this header
 children: Array<Header>;
+// All the CSS classes of this header
+classes: Array<Header>;
 ```
 
 ## Translated content
